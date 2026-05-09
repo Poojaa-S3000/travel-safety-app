@@ -32,10 +32,10 @@ function userSafe(){
     document.getElementById("popup").style.display="none";
     clearTimeout(responseTimer);
 }
-
 function triggerEmergency(){
     document.getElementById("popup").style.display="none";
-
+    document.getElementById("emergency").style.display="block";
+}
     // play siren
     document.getElementById("siren").play();
 
@@ -53,5 +53,17 @@ function triggerEmergency(){
         // open SMS
         window.open("sms:" + phoneNumber + "?body=" + message);
 
+    function sendEmergency(){
+    document.getElementById("siren").play();
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+
+        let message = "Emergency! I didn’t respond. My location: https://maps.google.com/?q=" + lat + "," + long;
+
+        window.open("https://wa.me/" + phoneNumber + "?text=" + message);
+        window.open("sms:" + phoneNumber + "?body=" + message);
     });
 }
