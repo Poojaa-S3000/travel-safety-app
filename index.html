@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Safety Check-In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🛡 Travel Safety Check-In</h1>
+
+    <input id="phone" type="text" placeholder="Enter Emergency Phone Number">
+
+    <select id="interval">
+        <option value="60000">Check every 10 seconds</option>
+        <option value="120000">Check every 2 minutes</option>
+        <option value="300000">Check every 5 minutes</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="startTravel()">Start Travel Mode</button>
+    <button onclick="stopTravel()">Stop</button>
+
+    <p id="status"></p>
+</div>
+
+<!-- Safety Popup -->
+<div id="popup" class="popup">
+    <h2>Are you safe?</h2>
+    <button onclick="userSafe()">YES I'M SAFE</button>
+</div>
+
+<audio id="siren" src="https://www.soundjay.com/misc/sounds/siren.wav"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
